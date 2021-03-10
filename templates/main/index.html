@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Hello</title>
+<title>{% block title %}{{ title }}{% endblock  %}
+</title>
 </head>
 <style>
 .body {
@@ -25,7 +26,6 @@
       </nav>
     </div>
 <div class="body">
-{% block title %}{{ title }}{% endblock  %}
 <br><br>
 {% block content %}
 <h1>Main Page</h1>
