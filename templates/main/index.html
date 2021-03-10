@@ -4,20 +4,35 @@
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Hello</title>
 </head>
+<style>
+.body {
+   max-width: 500px;
+  margin: auto;
+}
+</style>
 <body>
+
+
+
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
       <h5 class="my-0 mr-md-auto font-weight-normal">Umcor</h5>
       <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-dark" href="{% url 'home' %}">Main Page</a>
         <a class="p-2 text-dark" href="{% url 'about' %}">About</a>
+        <a class="p-2 text-dark" href="{% url 'create' %}">Create task</a>
       </nav>
     </div>
+<div class="body">
 {% block title %}{{ title }}{% endblock  %}
 <br><br>
 {% block content %}
+<h1>Main Page</h1>
 
-    {% for el in tasks %}
+
+   {% if tasks %}
+     {% for el in tasks %}
 
         <div class="alert alert-warning mt-2">
 
@@ -26,11 +41,14 @@
 
         </h3>
 
-        <p> {{ el.text }}</p>
+        <p> {{ el.task }}</p>
 
         </div>
-    {% endfor %}
-
+     {% endfor %}
+     {% else %}
+       <p>No records found</p>
+    {% endif %}
 {% endblock  %}
+</div>
 </body>
 </html>
